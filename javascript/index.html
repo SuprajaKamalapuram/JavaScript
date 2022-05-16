@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="card.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+
+    <title>JavaScript</title>
+</head>
+<body>
+    
+    <div id="btnContainer">
+        <button class="btn" onclick="listView()"><i class="fa fa-bars"></i></button> 
+        <button class="btn active" onclick="gridView()"><i class="fa fa-th-large"></i></button>
+      </div>
+    <br>
+    <div id="gv1">
+    </div>
+
+    <br/>
+    <br/>
+
+
+    <div id="list">
+               <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>ID</th>
+                    <th>Skills</th>
+                    <th>Project</th>
+                    <th>HCM</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="lv1"></tbody>
+            </table>
+        
+    </div>
+    
+
+    <script>
+
+var elements1 = document.getElementsByTagName("section");
+var elements2 = document.getElementsByTagName("tr");
+
+console.log(elements1);
+console.log(elements2);
+
+var i;
+
+function listView() {
+  for (i = 0; i < data.length; i++) {
+    elements2[i].style.width = "100%";
+    elements1[i].style.display = "none";
+  }
+
+}
+function gridView() {
+  for (i = 0; i < data.length; i++) {
+    elements1[i].style.display = "block";
+    elements2[i].style.display = "none";
+  }
+  i+1;
+  elements2[i].style.display = "none";
+
+}
+
+var container = document.getElementById("btnContainer");
+var btns = container.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+
+        const data=[
+
+{
+    "Name":"Jack",
+    "Id":84422,
+    "gender": "male",
+    "Skills":"ReactJs",
+    "Project":"Cognizant internal",
+    "HCM":"Alex"
+
+},
+{
+    "Name":"Lily",
+    "Id":12345,
+    "gender": "female",
+    "Skills":"ReactJs,AngularJS",
+    "Project":"Cognizant internal",
+    "HCM":"Alex"
+
+},
+{
+    "Name":"Bob",
+    "Id":82223,
+    "gender": "male",
+    "Skills":"ReactJs,AngularJS",
+    "Project":"Cognizant internal",
+    "HCM":"Mary"
+
+},
+{
+    "Name":"Rita",
+    "Id":12344,
+    "gender": "female",
+    "Skills":"ReactJs,AngularJS",
+    "Project":"Cognizant internal",
+    "HCM":"Amar"
+
+},
+{
+    "Name":"Smith",
+    "Id":12563,
+    "gender": "male",
+    "Skills":"ReactJs,AngularJS",
+    "Project":"Cognizant internal",
+    "HCM":"Raj"
+
+},
+{
+    "Name":"Loki",
+    "Id":76123,
+    "gender": "female",
+    "Skills":"ReactJs,AngularJS",
+    "Project":"Cognizant internal",
+    "HCM":"Han"
+
+},
+{
+    "Name":"Aman",
+    "Id":53123,
+    "gender": "male",
+    "Skills":"ReactJs,AngularJS",
+    "Project":"Cognizant internal",
+    "HCM":"Joel"
+
+},
+{
+    "Name":"Riya",
+    "Id":12563,
+    "gender": "female",
+    "Skills":"ReactJs,AngularJS",
+    "Project":"Cognizant internal",
+    "HCM":"Jim"
+
+},
+{
+    "Name":"Thomson",
+    "Id":17623,
+    "gender": "male",
+
+    "Skills":"ReactJs,AngularJS",
+    "Project":"Cognizant internal",
+    "HCM":"Laya"
+
+}
+];
+myFunction(data);
+myFun2(data);
+
+
+ var closebtns = document.getElementsByClassName("close");
+ var i;
+
+ for (i = 0; i < closebtns.length; i++) {
+   closebtns[i].addEventListener("click", function() {
+      this.parentElement.style.display = 'none';
+    
+   });
+ }
+ var clsbtns = document.getElementsByClassName("close-button");
+ var i;
+console.log(clsbtns)
+ for (i = 0; i < clsbtns.length; i++) {
+   clsbtns[i].addEventListener("click", function() {
+      
+    document.getElementById("tab").remove();
+
+   });
+ }
+
+
+
+ 
+function myFunction(d1) {
+  var i;
+  var codeBlock="";
+  for(i = 0; i < d1.length;i++) {
+ 
+          if(d1[i].gender=='male'){
+            codeBlock += '<section>'+
+           '<div class="card">'+
+                 '<span class="close">&times;</span>'+
+                  '<br>'+
+                 '<img src="images/boy.png" >'+
+                 '<ul>'+
+                    '<li>Name:'+'&nbsp'+d1[i].Name+'</li>'+
+                    '<li>ID:'+'&nbsp'+d1[i].Id+'</li>'+
+                    '<li class="skill">Skills:'+'&nbsp'+'<span class="ed1">'+d1[i].Skills+'</span>'+'</li>'+
+                    '<li>Project:'+'&nbsp'+d1[i].Project+'</li>'+
+                    '<li>HCM:'+'&nbsp'+d1[i].HCM+'</li>'+
+                    
+                    '<button class="edsa">Edit</button>'+'&nbsp'+
+                      
+                    '<button class="sav">Save</button>'+
+                    
+
+
+                '</ul>'+
+            '</div>'+
+        '</section>';
+        document.getElementById("gv1").innerHTML = codeBlock;
+          }
+          else{
+            codeBlock += '<section>'+
+           '<div class="card">'+
+            '<span class="close">&times;</span>'+
+                  '<br>'+
+                 '<img src="images/girl.png" >'+
+                 '<ul>'+
+                    '<li>Name:'+'&nbsp'+d1[i].Name+'</li>'+
+                    '<li>ID:'+'&nbsp'+d1[i].Id+'</li>'+
+                    '<li class="skill">Skills:'+'&nbsp'+'<span class="ed1">'+d1[i].Skills+'</span>'+'</li>'+
+                    '<li>Project:'+'&nbsp'+d1[i].Project+'</li>'+
+                    '<li>HCM:'+'&nbsp'+d1[i].HCM+'</li>'+
+                    
+                    '<button class="edsa">Edit</button>'+'&nbsp'+
+                    
+                    '<button class="sav">Save</button>'+
+                    
+                '</ul>'+
+            '</div>'+
+        '</section>';
+        document.getElementById("gv1").innerHTML = codeBlock;
+          }
+
+    } 
+    
+}
+function myFun2(d2) {
+
+var codeBlock2="";
+for(var j=0;j<d2.length;j++){
+
+    codeBlock2+='<tr id="tab">'+
+        '<td>'+d2[j].Name+'</td>'+
+        '<td>'+d2[j].Id+'</td>'+
+        '<td>'+d2[j].Skills+'</td>'+
+        '<td>'+d2[j].Project+'</td>'+
+        '<td>'+d2[j].HCM+'</td>'+
+        '<td>'+'<button class="close-button" aria-label="Close alert" type="button" data-close>'+
+          '<span aria-hidden="true">&times;</span>'+
+          '</button>'+'</td>'+
+        '</tr>';
+
+        document.getElementById("lv1").innerHTML = codeBlock2;
+
+}
+
+}
+
+
+</script>
+
+</body>
+      
+</html>
